@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/config/routers/route_names.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SignIn extends StatefulWidget {
@@ -106,7 +107,9 @@ class _SignInState extends State<SignIn> {
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 30),
                         child: MaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, RouteNames.home);
+                          },
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),

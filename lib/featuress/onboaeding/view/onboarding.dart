@@ -68,7 +68,7 @@ class OnboardingView extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ));

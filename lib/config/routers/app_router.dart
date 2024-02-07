@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/config/routers/route_names.dart';
 import 'package:flutter_application_1/featuress/auth/view/sign_in.dart';
+import 'package:flutter_application_1/featuress/home/view/home.dart';
 import 'package:flutter_application_1/featuress/onboaeding/view/onboarding.dart';
 
 class AppRouter {
@@ -14,6 +15,11 @@ class AppRouter {
       case RouteNames.signIn:
         return _materialRoute(
           const SignIn(),
+        );
+
+      case RouteNames.home:
+        return _materialRoute(
+          const Home(),
         );
 
       default:
