@@ -4,7 +4,15 @@ import 'package:flutter_svg/svg.dart';
 class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
+    required this.name,
+    required this.price,
+    required this.image,
+    required this.score,
   });
+  final String name;
+  final String price;
+  final String image;
+  final String score;
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +35,14 @@ class ProductCard extends StatelessWidget {
                 children: [
                   Container(
                     constraints: const BoxConstraints(
-                      maxHeight: 142,
-                      maxWidth: 142,
+                      minHeight: 142,
+                      minWidth: 142,
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      image: const DecorationImage(
+                      image: DecorationImage(
                         image: AssetImage(
-                          'assets/images/coffee.png',
+                          image,
                         ),
                         fit: BoxFit.cover,
                       ),
@@ -57,9 +65,9 @@ class ProductCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SvgPicture.asset('assets/svg/star.svg'),
-                        const Text(
-                          "4.5",
-                          style: TextStyle(
+                        Text(
+                          score,
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 10,
                           ),
@@ -72,17 +80,17 @@ class ProductCard extends StatelessWidget {
             ),
             Column(
               children: [
-                const Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      "Cappuccino",
-                      style: TextStyle(
+                      name,
+                      style: const TextStyle(
                         color: Color(0xFF2F2D2C),
                         fontSize: 13,
                       ),
                     ),
-                    Text(
+                    const Text(
                       "with Chocolate",
                       style: TextStyle(
                         color: Color(0xFF9B9B9B),
@@ -94,9 +102,9 @@ class ProductCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      "\$ 4.50",
-                      style: TextStyle(
+                    Text(
+                      price,
+                      style: const TextStyle(
                         color: Color(0xFF2F2D2C),
                         fontSize: 13,
                       ),
