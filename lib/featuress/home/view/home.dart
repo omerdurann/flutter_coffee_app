@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/featuress/home/widget/coffeeCategory.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_application_1/featuress/home/widget/coffee_category.dart';
+import 'package:flutter_application_1/featuress/home/widget/product_card.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -16,6 +16,39 @@ class _HomeState extends State<Home> {
     "Latte",
     "Americano",
     "Turkish Coffee",
+  ];
+
+  List<dynamic> products = [
+    {
+      "name": "Cappuccino",
+      "price": 5.99,
+      "image": "assets/images/coffee2.png",
+      "score": "4.5",
+    },
+    {
+      "name": "Machiato",
+      "price": 6.99,
+      "image": "assets/images/coffee3.png",
+      "score": "4.5",
+    },
+    {
+      "name": "Latte",
+      "price": 7.99,
+      "image": "assets/images/coffee4.png",
+      "score": "4.5",
+    },
+    {
+      "name": "Americano",
+      "price": 8.99,
+      "image": "assets/images/coffee5.png",
+      "score": "4.5",
+    },
+    {
+      "name": "Turkish Coffee",
+      "price": 9.99,
+      "image": "assets/images/coffee6.png",
+      "score": "4.5",
+    },
   ];
 
   @override
@@ -124,7 +157,7 @@ class _HomeState extends State<Home> {
                           scrollDirection: Axis.horizontal,
                           itemCount: coffeeCategories.length,
                           itemBuilder: (BuildContext context, int index) {
-                            return coffeeCategory(
+                            return CoffeeCategory(
                               coffeeName: coffeeCategories[index],
                             );
                           },
@@ -146,74 +179,7 @@ class _HomeState extends State<Home> {
                           ),
                           itemCount: coffeeCategories.length,
                           itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                color: Colors.amber,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 10,
-                                      vertical: 10,
-                                    ),
-                                    child: Stack(
-                                      alignment: Alignment.topLeft,
-                                      children: [
-                                        Container(
-                                          height: 90,
-                                          width: 150,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                              color: Colors.grey,
-                                              width: 0.5,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                            /* image: const DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/coffee.png'),
-                                              fit: BoxFit.cover,
-                                            ), */
-                                          ),
-                                        ),
-                                        Container(
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 10,
-                                            vertical: 5,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            color: const Color.fromRGBO(
-                                                0, 0, 0, 0.5),
-                                            borderRadius: BorderRadius.only(
-                                              bottomRight: Radius.circular(25),
-                                              topLeft: Radius.circular(19),
-                                            ),
-                                          ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              SvgPicture.asset(
-                                                  'assets/svg/star.svg'),
-                                              const Text(
-                                                "4.5",
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 10,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            );
+                            return const ProductCard();
                           },
                         ),
                       ),
