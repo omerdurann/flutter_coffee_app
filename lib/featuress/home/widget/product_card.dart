@@ -35,8 +35,8 @@ class ProductCard extends StatelessWidget {
                 children: [
                   Container(
                     constraints: const BoxConstraints(
-                      minHeight: 142,
-                      minWidth: 142,
+                      minHeight: 242,
+                      minWidth: 242,
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
