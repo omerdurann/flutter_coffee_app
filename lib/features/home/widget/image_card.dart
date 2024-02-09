@@ -8,7 +8,7 @@ class ImageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: MediaQuery.of(context).size.height * 0.5,
+      bottom: MediaQuery.of(context).size.height * 0.43,
       left: MediaQuery.of(context).size.width * 0.075,
       child: Container(
         padding: const EdgeInsets.symmetric(
@@ -37,21 +37,21 @@ class ImageCard extends StatelessWidget {
                 horizontal: 10,
                 vertical: 5,
               ),
-              child: const Text(
+              child: Text(
                 "Promo",
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 15,
+                  fontSize: MediaQuery.of(context).size.width * 0.04,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 10),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
               child: Text("Buy one get\n one FREE",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 32,
+                    fontSize: MediaQuery.of(context).size.width * 0.08,
                     backgroundColor: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),

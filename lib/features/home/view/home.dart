@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/featuress/home/widget/coffee_category.dart';
-import 'package:flutter_application_1/featuress/home/widget/image_card.dart';
-import 'package:flutter_application_1/featuress/home/widget/product_card.dart';
-import 'package:flutter_application_1/featuress/home/widget/user_info.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_application_1/features/home/widget/coffee_category.dart';
+import 'package:flutter_application_1/features/home/widget/image_card.dart';
+import 'package:flutter_application_1/features/home/widget/product_card.dart';
+import 'package:flutter_application_1/features/home/widget/user_info.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -19,6 +20,8 @@ class _HomeState extends State<Home> {
     "Americano",
     "Turkish Coffee",
   ];
+
+  int chosenIndex = 0;
 
   List<dynamic> products = [
     {
@@ -56,6 +59,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Stack(
           children: [
@@ -73,20 +77,32 @@ class _HomeState extends State<Home> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(
-                          height: 60,
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.11,
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 30),
                           child: SizedBox(
-                            height: 50,
+                            height: MediaQuery.of(context).size.height * 0.05,
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
                               itemCount: coffeeCategories.length,
                               itemBuilder: (BuildContext context, int index) {
                                 return CoffeeCategory(
                                   coffeeName: coffeeCategories[index],
-                                );
+                                  currentIndex: index,
+                                  chosenIndex: chosenIndex,
+                                  onTap: () {
+                                    setState(
+                                      () {
+                                        chosenIndex = index;
+                                      },
+                                    );
+                                  },
+                                ).animate().shake(
+                                      duration:
+                                          const Duration(milliseconds: 50000),
+                                    );
                               },
                             ),
                           ),
@@ -97,7 +113,7 @@ class _HomeState extends State<Home> {
                             right: 30,
                           ),
                           child: SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.4,
+                            height: MediaQuery.of(context).size.height * 0.36,
                             width: MediaQuery.of(context).size.width,
                             child: GridView.builder(
                               gridDelegate:
@@ -109,11 +125,12 @@ class _HomeState extends State<Home> {
                               ),
                               itemCount: products.length,
                               itemBuilder: (BuildContext context, int index) {
+                                final product = products[index];
                                 return ProductCard(
-                                  name: products[index]["name"],
-                                  price: products[index]["price"],
-                                  image: products[index]["image"],
-                                  score: products[index]["score"],
+                                  name: product["name"],
+                                  price: product["price"],
+                                  image: product["image"],
+                                  score: product["score"],
                                 );
                               },
                             ),

@@ -41,7 +41,7 @@ class OnboardingView extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, RouteNames.signIn);
+                      Navigator.pushNamed(context, RouteNames.bottomNavbar);
                     },
                     child: Container(
                       padding: const EdgeInsets.symmetric(

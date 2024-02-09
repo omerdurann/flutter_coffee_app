@@ -13,7 +13,7 @@ class UserInfo extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
         child: Column(
           children: [
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -24,20 +24,20 @@ class UserInfo extends StatelessWidget {
                       "Location",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 12,
+                        fontSize: MediaQuery.of(context).size.width * 0.03,
                       ),
                     ),
                     Text(
                       "Bilzen, Tanjungbalai",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15,
+                        fontSize: MediaQuery.of(context).size.width * 0.04,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
                 ),
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 25,
                   backgroundImage: AssetImage('assets/images/profile.png'),
                 ),
