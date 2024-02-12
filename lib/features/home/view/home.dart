@@ -99,10 +99,10 @@ class _HomeState extends State<Home> {
                                       },
                                     );
                                   },
-                                ).animate().shake(
+                                ); /* .animate().shake(
                                       duration:
                                           const Duration(milliseconds: 50000),
-                                    );
+                                    ); */
                               },
                             ),
                           ),

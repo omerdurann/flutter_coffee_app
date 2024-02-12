@@ -17,13 +17,14 @@ class CoffeeCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: InkWell(
         onTap: onTap,
         child: Container(
           decoration: BoxDecoration(
-            color:
-                currentIndex == chosenIndex ? Color(0xFFC67C4E) : Colors.white,
+            color: currentIndex == chosenIndex
+                ? const Color(0xFFC67C4E)
+                : Colors.white,
             borderRadius: const BorderRadius.all(
               Radius.circular(10),
             ),
@@ -39,7 +40,7 @@ class CoffeeCategory extends StatelessWidget {
               style: TextStyle(
                 color: currentIndex == chosenIndex
                     ? const Color(0xFFFfffff)
-                    : Color(0xFF2F4B4E),
+                    : const Color(0xFF2F4B4E),
                 fontSize: MediaQuery.of(context).size.width * 0.037,
               ),
             ),
